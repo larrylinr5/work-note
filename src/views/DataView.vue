@@ -11,8 +11,8 @@
           <button style="margin-left:5px">更新</button>
         </div>
         <div class="form-check" v-for="(bbb,index) in aaa" :key="index">
-          <input class="form-check-input" type="checkbox" :value="bbb" :id="bbb" v-model="DataChangeTodo.Todo">
-          <label class="form-check-label" :for="bbb">
+          <input class="form-check-input" type="checkbox" :value="DataChangeTodo.NID+bbb" :id="DataChangeTodo.NID+bbb" v-model="DataChangeTodo.Todo">
+          <label class="form-check-label" :for="DataChangeTodo.NID+bbb" disabled=true>
               {{ bbb }}
           </label>
         </div>
