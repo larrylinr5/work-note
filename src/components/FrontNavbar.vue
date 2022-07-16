@@ -1,8 +1,7 @@
 <template>
   <div class="container mt-3">
   <div class="row">
-    <div class="col-2" @click="test">首頁</div>
-    <div class="col-6 offset-4">
+    <div class="col">
       <span>帳號</span><input type="text" v-model="account" :disabled="loginFlg">
       <span>密碼</span><input type="password" v-model="password" :disabled="loginFlg">
       <button @click="login">登入</button>
