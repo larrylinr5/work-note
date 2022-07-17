@@ -2,10 +2,10 @@
   <div class="container mt-3">
   <div class="row">
     <div class="col">
-      <span>帳號</span><input type="text" v-model="account" :disabled="loginFlg">
+      <span>帳號</span><input type="text" v-model="account" :disabled="loginFlg" id="account">
       <span>密碼</span><input type="password" v-model="password" :disabled="loginFlg">
-      <button @click="login">登入</button>
-      <button @click="logOut">登出</button>
+      <button @click="login" :disabled="loginFlg">登入</button>
+      <button @click="logOut" :disabled="!loginFlg">登出</button>
     </div>
   </div>
 </div>
@@ -61,6 +61,7 @@ export default {
       this.password = ''
       this.$emit('change-loginFlag', false)
       this.loginFlg = false
+      this.$router.push('/')
       alert('登出')
     }
   },

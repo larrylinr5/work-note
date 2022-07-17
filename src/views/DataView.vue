@@ -50,6 +50,9 @@ export default {
     test () {
       alert(JSON.stringify(this.DataChangeTodos))
     }
+  },
+  mounted () {
+    if (document.getElementById('account').disabled === false) this.$router.push('/')
   }
 }
 </script>
