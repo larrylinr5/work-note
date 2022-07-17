@@ -26,16 +26,40 @@ export default {
   },
   methods: {
     login () {
-      if (this.account === 'M30349' && this.password === 'test') {
-        this.loginFlg = true
+      const accountM = this.account.substr(0, 1)
+      if (accountM === 'M' || accountM === 'm') {
+        this.account = 'M' + this.account.substr(1, 5)
+        this.$http
+          .get('https://peaceful-springs-31295.herokuapp.com/users', {
+            account: this.account,
+            password: this.password
+          })
+          // 成功
+          .then((response) => {
+            if (response.data.logInflag) {
+              this.$emit('change-loginFlag', response.data.logInflag)
+              this.loginFlg = response.data.logInflag
+              // 登入成功
+              alert('登入成功')
+            } else {
+              this.$emit('change-loginFlag', response.data.logInflag)
+              this.loginFlg = response.data.logInflag
+              // 登入成功
+              alert('帳號或密碼輸入錯誤')
+            }
+          })
+          // 失敗
+          .catch(() => {
+            alert('登入失敗')
+          })
       } else {
         alert('帳號或密碼輸入錯誤')
       }
-    // this.$router.push('/')
     },
     logOut () {
       this.account = ''
       this.password = ''
+      this.$emit('change-loginFlag', false)
       this.loginFlg = false
       alert('登出')
     }

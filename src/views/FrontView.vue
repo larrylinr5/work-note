@@ -1,7 +1,7 @@
 <!-- eslint-disable no-tabs -->
 <template>
   <!-- 導覽列 -->
-  <FrontNavbar></FrontNavbar>
+  <FrontNavbar @change-loginFlag="changeLoginFlag"></FrontNavbar>
   <div class="container mt-4">
     <div class="row">
       <div class="col-2">
@@ -12,12 +12,12 @@
         </div>
         <div class="row">
           <div class="col-12 mt-2">
-            <button @click="GoDataChange">資料變更Todo</button>
+            <button @click="GoDataChange" :hidden="!loginFlag">資料變更Todo</button>
           </div>
         </div>
         <div class="row">
           <div class="col-12 mt-2">
-            <button>換版流程Todo</button>
+            <button :hidden="!loginFlag">換版流程Todo</button>
           </div>
         </div>
       </div>
@@ -33,18 +33,27 @@ import FrontNavbar from '@/components/FrontNavbar.vue'
 
 export default {
   data () {
-    return {}
+    return {
+      loginFlag: false
+    }
   },
   components: {
     FrontNavbar
   },
   methods: {
     GoDataChange () {
-      this.$router.push('/DataView')
+      if (!this.loginFlag) this.$router.push('/')
+      else this.$router.push('/DataView')
     },
     Home () {
       this.$router.push('/')
+    },
+    changeLoginFlag (flag) {
+      this.loginFlag = flag
     }
+  },
+  mounted () {
+    if (!this.loginFlag) this.$router.push('/')
   }
 }
 </script>
