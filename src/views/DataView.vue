@@ -168,7 +168,7 @@ export default {
   methods: {
     getTodo () {
       this.$http
-        .get('http://127.0.0.1:3005/dataviewtodo/' + this.account)
+        .get('https://peaceful-springs-31295.herokuapp.com/dataviewtodo/' + this.account)
         // 成功
         .then((response) => {
           this.DataChangeTodos = response.data.result.reverse()
@@ -184,7 +184,7 @@ export default {
       this.DataChangeTodos[index].data2Disabled = true
       setTimeout(() => {
         this.$http
-          .patch('http://127.0.0.1:3005/dataviewtodo/' + item, this.DataChangeTodos[index])
+          .patch('https://peaceful-springs-31295.herokuapp.com/dataviewtodo/' + item, this.DataChangeTodos[index])
           // 成功
           .then((response) => {
           })
@@ -196,7 +196,7 @@ export default {
     },
     addTodo () {
       this.$http
-        .post('http://127.0.0.1:3005/dataviewtodo/', { account: this.account })
+        .post('https://peaceful-springs-31295.herokuapp.com/dataviewtodo/', { account: this.account })
         // 成功
         .then((response) => {
           this.getTodo()
@@ -208,7 +208,7 @@ export default {
     },
     deleteTodo (id) {
       this.$http
-        .delete('http://127.0.0.1:3005/dataviewtodo/' + id)
+        .delete('https://peaceful-springs-31295.herokuapp.com/dataviewtodo/' + id)
         // 成功
         .then((response) => {
           this.getTodo()
