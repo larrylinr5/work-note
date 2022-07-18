@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkwork_note"]=self["webpackChunkwork_note"]||[]).push([[533],{533:function(n,t,e){e.r(t),e.d(t,{default:function(){return d}});var r=e(252);const s={class:"row"},o=(0,r._)("div",{class:"text-center mt-5"},[(0,r._)("span",{style:{"font-size":"5em"}},"這裡是首頁請先登入再操作")],-1),c=[o];function a(n,t,e,o,a,u){return(0,r.wg)(),(0,r.iD)("div",s,c)}var u={data(){return{}},components:{}},i=e(744);const f=(0,i.Z)(u,[["render",a]]);var d=f}}]);
+//# sourceMappingURL=533.0179fbbd.js.map
