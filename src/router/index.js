@@ -15,6 +15,11 @@ const routes = [
       {
         path: 'DataView',
         component: () => import('../views/DataView.vue')
+      },
+      // 換版
+      {
+        path: 'VersionView',
+        component: () => import('../views/VersionView.vue')
       }
       // // 產品頁面
       // {

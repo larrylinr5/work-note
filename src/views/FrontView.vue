@@ -17,7 +17,7 @@
         </div>
         <div class="row">
           <div class="col-12 mt-2">
-            <button :hidden="!loginFlag">換版流程Todo</button>
+            <button @click="GoVersionView" :hidden="!loginFlag">換版流程Todo</button>
           </div>
         </div>
       </div>
@@ -44,6 +44,10 @@ export default {
     GoDataChange () {
       if (!this.loginFlag) this.$router.push('/')
       else this.$router.push('/DataView')
+    },
+    GoVersionView () {
+      if (!this.loginFlag) this.$router.push('/')
+      else this.$router.push('/VersionView')
     },
     Home () {
       this.$router.push('/')
